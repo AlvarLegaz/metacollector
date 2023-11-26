@@ -1,3 +1,13 @@
+"""
+Author: Álvar Ginés Legaz Aparicio
+Mail: alvarlegaz@gmail.com
+Site: www.mysecurenetworks.com
+
+Briefly: Metacollectormetacollector is a tool designed for extracting metadata from PDF files, whether they reside locally on a machine or are accessible on the internet.
+
+License: Creative Commons Legal Code
+"""
+
 import sys
 import requests
 import PyPDF2
@@ -33,7 +43,6 @@ def remove_metadata(path, path_out):
         pdf_reader = PyPDF2.PdfReader(pdf_file)
         # Make a PdfFileWriter object to write the new PDF
         pdf_writer = PyPDF2.PdfWriter() 
-        # Copiar todas las páginas del PDF original al nuevo PDF
         for page_num in pdf_reader.pages:
             pdf_writer.add_page(page_num)
 
