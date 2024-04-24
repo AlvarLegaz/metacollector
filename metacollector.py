@@ -1,7 +1,6 @@
 """
 Author: Álvar Ginés Legaz Aparicio
 Mail: alvarlegaz@gmail.com
-Site: www.mysecurenetworks.com
 
 Briefly: Metacollectormetacollector is a tool designed for extracting metadata from PDF files, whether they reside locally on a machine or are accessible on the internet.
 
