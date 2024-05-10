@@ -16,6 +16,7 @@ from datetime import datetime
 # Program version
 major_version = "1"
 minor_version ="0"
+subversion ="1"
 pdf_reader = None
 
 def get_pdf_metadata_from_url(url):
@@ -50,6 +51,7 @@ def remove_metadata(path, path_out):
         '/Author': '',
         '/Subject': '',
         '/Producer': '',
+        '/Creator': '',
         '/Keywords': '',
     }) 
     with open(path_out, 'wb') as out_pdf_file:
@@ -58,9 +60,11 @@ def remove_metadata(path, path_out):
 def show_metadata(metadata):
     print(f"Title: {metadata.title}")
     print(f"Author: {metadata.author}")
+    print(f"Subject: {metadata.subject}")
     print(f"Creator: {metadata.creator}")
     print(f"Producer: {metadata.producer}")
-    print(f"Subject: {metadata.subject}")
+    print(f"Creation Date: {metadata.creation_date}")
+    print(f"Modification Date: {metadata.modification_date}")
 
 #These lines will only be executed if the script is run directly.
 if __name__ == "__main__":
@@ -71,10 +75,10 @@ if __name__ == "__main__":
         sys.exit(1) 
 
     if sys.argv[1] == "-h":
-        print(f"MetaCollector v{major_version}.{minor_version}") 
-        print("-l: get pdf from local file.")
-        print("-w: get pdf from local url.") 
-        print("-r: create new file with metadata removed")     
+        print(f"MetaCollector v{major_version}.{minor_version}.{subversion}") 
+        print("-l: get metadata from pdf on local file.")
+        print("-w: get metadata from pdf on remote url.") 
+        print("-r: create new file with metadata removed arg[1]:input filename arg[2]:output filename (optional)")     
         sys.exit(0)
 
     elif sys.argv[1] == "-l":
